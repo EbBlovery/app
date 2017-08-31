@@ -8,7 +8,10 @@ import { Component, OnInit, Input } from '@angular/core';
 export class StarsComponent implements OnInit {
   @Input()
   private rating:number = 0;
-  
+
+  @Input()
+  private datavalue:string;
+
   private stars: boolean[];
 
   constructor() { }

@@ -11,13 +11,15 @@ import 'rxjs/Rx'
 export class ProductComponent implements OnInit {
   private products: Product[];
 
+  dates: '';
+
   private imgUrl = '../assets/svg.png';
 
   private keyword:string;
 
   private titleFilter:FormControl = new FormControl();
 
-  constructor(private productService: ProductService) { 
+  constructor(private productService: ProductService) {
        this.titleFilter.valueChanges
           .debounceTime(500)
           .subscribe(

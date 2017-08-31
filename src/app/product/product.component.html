@@ -2,7 +2,9 @@
 	<div class="col-sm-12">
 		<div class="form-group">
 			<input class="form-control" placeholder="输入商品名称"
-            [formControl]="titleFilter">
+            [formControl]="titleFilter"
+            [(ngModel)]="dates">
+      {{dates}}
 		</div>
 	</div>
 </div>
@@ -15,7 +17,7 @@
 			<p>{{product.desc}}</p>
 		</div>
 		<div>
-			<app-stars [rating]="product.rating"></app-stars>
+			<app-stars [datavalue]="dates" [rating]="product.rating"></app-stars>
 		</div>
 	</div>
 </div>
