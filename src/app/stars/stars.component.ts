@@ -22,5 +22,9 @@ export class StarsComponent implements OnInit {
   	 	this.stars.push(i>this.rating);
   	 }
   }
+  clickStar(index:number){
+     this.rating = index + 1;
+     this.ngOnInit()
+  }
 
 }
