@@ -3,6 +3,6 @@
      [class.glyphicon-star-empty]="star"
      (click)="clickStar(i)"
 	></span>
-	<span>{{rating}}星</span>
+	<span>{{rating | number:'1.0-1'}}星</span>
   <span>{{datavalue}}</span>
 </p>
