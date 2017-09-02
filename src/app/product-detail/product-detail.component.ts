@@ -13,6 +13,10 @@ export class ProductDetailComponent implements OnInit {
   product: Product;
   comments: Comment[];
 
+  private newRating:number = 5;
+
+  private newComment:string = '';
+
   constructor(
   	private routeInfo: ActivatedRoute,
     private productService: ProductService
@@ -24,5 +28,8 @@ export class ProductDetailComponent implements OnInit {
     this.comments = this.productService.getCommentsForProductId(productId)
     console.log(this.comments)
   }
-
+  addComment(){
+    let comment = new Comment(0,this.product.id,new Date().toISOString(),'李四',this.newRating,this.newComment);
+    this.comments.unshift(comment)
+  }
 }
