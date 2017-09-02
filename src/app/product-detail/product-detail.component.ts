@@ -17,6 +17,8 @@ export class ProductDetailComponent implements OnInit {
 
   private newComment:string = '';
 
+  private isCommentHidden:boolean = true;
+
   constructor(
   	private routeInfo: ActivatedRoute,
     private productService: ProductService
@@ -30,6 +32,9 @@ export class ProductDetailComponent implements OnInit {
   }
   addComment(){
     let comment = new Comment(0,this.product.id,new Date().toISOString(),'李四',this.newRating,this.newComment);
-    this.comments.unshift(comment)
+    this.comments.unshift(comment);
+    this.newComment = '';
+    this.newRating = 5;
+    this.isCommentHidden = true;
   }
 }
