@@ -27,7 +27,11 @@ export class ProductService {
   ];
 
   constructor() { }
-  
+
+  getAllcategocies():string[]{
+    return ['电子商品','硬件设备','图书']
+  }
+
   getProducts():Product[] {
   	return this.products;
   }
