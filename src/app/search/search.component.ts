@@ -37,5 +37,9 @@ export class SearchComponent implements OnInit {
       return {positiveNumber:true}
     }
   }
-
+  onSearch(){
+    if(this.formModule.value){
+      console.log(this.formModule.value)
+    }
+  }
 }

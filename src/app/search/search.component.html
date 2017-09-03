@@ -13,7 +13,7 @@
 		<label for="productCategory">商品类别：</label>
 		<select formControlName="category" id="productCategory" class="form-control">
       <option value="-1">全部分类</option>
-      <option *ngFro="let category of categories" value="category">{{category}}</option>
+      <option *ngFor="let category of categories" [value]="category">{{category}}</option>
     </select>
 	</div>
 	<div class="form-group">
