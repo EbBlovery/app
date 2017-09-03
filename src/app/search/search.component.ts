@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import {ProductService} from "../shared/product.service";
 
 @Component({
   selector: 'app-search',
@@ -10,19 +11,22 @@ export class SearchComponent implements OnInit {
 
   formModule:FormGroup;
 
-  constructor() {
+  categories: string[];
+
+  constructor(private productService:ProductService) {
     let db = new FormBuilder();
     this.formModule = db.group({
-       title:['',ValidityState.minlength(3)],
+       title:['',Validators.minLength(3)],
        price: [null,this.positiveNumberValidate],
-       category: ['']
+       category: ['-1']
     })
   }
 
   ngOnInit() {
+    this.categories = this.productService.getAllcategocies()
   }
 
-  positiveNumberValidate(control: FormControl){
+  positiveNumberValidate(control: FormControl):any{
     if(!control.value){
       return null
     }
